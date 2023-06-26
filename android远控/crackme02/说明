@@ -1,0 +1,13 @@
+第一步，在MainActivity.smali中，找到checkSN函数，
+         修改 .locals 10 --->11增加一个寄存器
+
+第二步，在equalsIgnoreCase执行前，增加
+ const-string v11, "vvvvvvvv"
+invoke-static {v11, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+第三步，在androidkiller中保存文件，运行编译、选择安装设备，安装
+
+第四步，在androidkiller，打开“日志”；在虚拟机中，输入用户名cuc和任意16位密码
+
+第五步，在androidkiller的日志窗口中，查看日志，
+     在vvvvvvvv的那一行，后面就是用户名cuc对应的密码 ffe0cf4dd4b5e38e
